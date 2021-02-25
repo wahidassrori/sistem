@@ -8,6 +8,7 @@
         <div class="halaman-user">
             <div class="content-data-user">
                 <button class="button-form-tambah-user button-blue">Tambah User</button>
+                <div class="pesan pesan-tambah-user"></div>
                 <form class="form-tambah-user">
                     <label class="label-ve">Username</label>
                     <input type="text" name="username" autocomplete="off" required>
@@ -25,23 +26,16 @@
                     </select>
                     <input class="button-simpan-user button-green" type="submit" value="Simpan">
                 </form>
-                <form class="form-update-user">
-                    <label class="label-ve">Username</label>
-                    <input type="text" name="username" autocomplete="off" required>
-                    <label class="label-ve">Password</label>
-                    <input type="text" name="password" autocomplete="off" required>
-                    <label class="label-ve">Usergrup</label>
-                    <select name="idusergrup" id="idusergrup" required>
-                        <option value="">Pilih Usergrup</option>
-                        <?php
-                        $query = mysqli_query($mysqli, "SELECT idusergrup, usergrup FROM usergrup");
-                        while ($rows = mysqli_fetch_assoc($query)) {
-                            echo '<option value="' . $rows['idusergrup'] . '">' . $rows['usergrup'] . '</option>';
-                        }
-                        ?>
+                <div class="pesan"></div>
+                <div class="update-user"></div>
+                <div class="filter-data-user">
+                    <select id="jumlah-tampil-data-user" class="jumlah-tampil-user">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="100">100</option>
                     </select>
-                    <input class="button-update-user button-orange" type="submit" value="Update">
-                </form>
+                    <input type="search" class="search-data-user" placeholder="Search">
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -50,7 +44,7 @@
                             <th>Password</th>
                             <th>Usergrup</th>
                             <th>Status</th>
-                            <th width="14%">Update/Delete</th>
+                            <th width="30px">Update</th>
                         </tr>
                     </thead>
                     <tbody class="data-user"></tbody>

@@ -14,6 +14,8 @@
 input[type=text],
 input[type=password],
 input[type=number],
+input[type=search],
+textarea,
 select {
     width: 100%;
     padding: 10px 15px;
@@ -44,6 +46,10 @@ select {
     font-size: 1em;
 }
 
+.input-medium {
+    padding: 10px 15px;
+}
+
 input[type=submit],
 button {
     padding: 8px 10px;
@@ -51,6 +57,10 @@ button {
     cursor: pointer;
     border-radius: 3px;
     outline: none;
+}
+
+.button-small {
+    padding: 4px 5px;
 }
 
 .button-normal {
@@ -130,16 +140,13 @@ th.table-action {
 }
 
 td {
-    padding: 4px 5px;
+    padding: 2px 5px;
 }
 
 td:nth-child() {
     background-color: #d0d0d0;
 }
 
-.pesan {
-    color: red;
-}
 
 /*
 ############################################################################
@@ -448,7 +455,11 @@ Halaman user
 }
 
 .form-update-user {
-    display: none;
+    display: block;
+}
+
+.button-form-tambah-user {
+    margin-bottom: 10px;
 }
 
 .button-simpan-user {
@@ -466,10 +477,12 @@ Halaman user
 }
 
 .halaman-user table {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.content-data-user {}
+.content-data-user {
+    transition: 2s;
+}
 
 .content-usergrup {
     display: none;
@@ -492,4 +505,42 @@ Halaman user
 
 .button-tambah-usergrup {
     margin-top: 15px;
+}
+
+.filter-data-user {
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+}
+
+.jumlah-tampil-user {
+    padding: 8px;
+    width: fit-content;
+}
+
+.search-data-user {
+    max-width: 300px;
+    padding: 8px 15px;
+}
+
+/*
+############################################################################
+Halaman Gudang
+############################################################################
+*/
+
+.form-tambah-gudang {
+    display: none;
+}
+
+.form-toggle {
+    display: block;
+}
+
+.halaman-gudang table {
+    margin-top: 10px;
+}
+
+.submit-tambah-gudang {
+    margin-top: 10px;
 }

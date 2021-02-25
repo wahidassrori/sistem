@@ -18,10 +18,12 @@ function input_validation($data)
 
 function akses_validation($mysqli)
 {
-    if (!isset($_SESSION['username-login']) && !isset($_SESSION['idusergrup'])) {
+    if (!isset($_SESSION['iduser']) && !isset($_SESSION['username-login']) && !isset($_SESSION['idusergrup'])) {
         header('location:login.php');
     }
-    $query = mysqli_query($mysqli, "SELECT akses FROM usergrup WHERE idusergrup='{$_SESSION['idusergrup']}'");
+    $query_user = mysqli_query($mysqli, "SELECT idusergrup FROM user WHERE iduser='{$_SESSION['iduser']}'");
+    $rows = mysqli_fetch_assoc($query_user);
+    $query = mysqli_query($mysqli, "SELECT akses FROM usergrup WHERE idusergrup='{$rows['idusergrup']}'");
     $result = mysqli_fetch_assoc($query);
     $array_akses = explode('-', $result['akses']);
     $halaman = explode('/', $_SERVER['PHP_SELF']);
